@@ -1,0 +1,56 @@
+{% extends "base.html" %}	
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 class = "font-family :Georgia" >Înregistrare</h1>
+            <p class  = "paragraf"> Miazazi.md este cel mai fain si cel mai fain cel mai cel mai cel mai fain website dintre toate cele pe care le-ati accesat vreodata. Welcome to the registration web page. In order to create events and have a rated user profile, you need to register on the Miazazi.md website</p>  
+        </div>
+    </div>
+	<div class = "registration horizontal-form"> 
+
+        <form class = "form-group" action="{{ url_for('signup') }}" style="width:60%;margin:auto;" method="post">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.first_name(placeholder=form.first_name.label.text, class="form-control") }}
+                <span class="help-block">
+                    {{ form.first_name.errors|first }}
+                </span>    
+            </div>
+            <div class="form-group">
+                {{ form.last_name(placeholder=form.last_name.label.text, class="form-control") }}
+                <span class="help-block">
+                    {{ form.last_name.errors|first }}
+                </span> 
+            </div> 
+            <div class="form-group">
+                {{ form.place(placeholder=form.place.label.text, class="form-control") }}
+                <span class="help-block">
+                    {{ form.place.errors|first }}
+                </span> 
+            </div> 
+            <div class="form-group">
+                {{ form.email(placeholder=form.email.label.text, class="form-control") }}
+                <span class="help-block">
+                    {{ form.email.errors|first }}
+                </span> 
+            </div> 
+            <div class="form-group">
+                {{ form.password(placeholder=form.password.label.text, class="form-control") }}
+                <span class="help-block">
+                    {{ form.password.errors|first }}
+                </span> 
+            </div>
+            <div class="form-group">
+                {{ form.password_confirmation(placeholder=form.password_confirmation.label.text, class="form-control") }}
+                <span class="help-block">
+                    {{ form.password_confirmation.errors|first }}
+                </span> 
+            </div>
+            <div class="form-group text-center">
+                {{form.submit(class="btn btn-danger")}}
+            </div>
+        </form>   
+    </div>
+
+{% endblock %}

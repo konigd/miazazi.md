@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="row">
+	<div class="col-md-12 text-center">
+		<h1 class="font-family :georgia">Eveniment</h1>
+		<p class="paragraf">Miazazi.md  cel mai fayn web.sait de pe glob</p>
+	</div>
+</div>
+<div class="registration horizontal-form">
+	<form class="form-group" action="/create_event" style="width:60%;margin:auto;" method="post">
+		{{form.csrf_token}}
+		<div class="form-group">
+			{{form.title(placeholder=form.title.label.text, class="form-control")}}
+			<span class="info-block">
+				{{form.title.errors|first}}
+			</span>
+		</div>
+
+		<div class=" form-group dropdown">
+			{{form.place(placeholder=form.place.label.text, class="btn form-control dropdown-toggle")}}
+			<span class="info-block">
+				{{form.place.errors|first}}
+			</span>
+		</div>	
+		<div class="form-group dropdown">
+			{{form.category(placeholder=form.category.label.text, class="btn form-control dropdown-toggle")}}
+			<span class="info-block">
+				{{form.category.errors|first}}
+			</span>
+		</div>
+		<div class="form-group">
+			{{form.image_url(placeholder=form.image_url.label.text, class="form-control")}}
+			<span class="info-block">
+				{{form.image_url.errors|first}}
+			</span>
+		</div>	
+
+		<div class="form-group">
+			{{form.description(placeholder=form.description.label.text, class="form-control", rows=10)}}
+			<span class="info-block">
+				{{form.description.errors|first}}
+			</span>
+		</div>
+
+
+		<div class="form-group texte-center">
+			{{form.submit(class="btn btn-success pull-right")}}
+		</div>
+	</form>
+</div>
+
+{% endblock %}

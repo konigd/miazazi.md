@@ -1,0 +1,88 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block javascripts %}
+{{ super() }}
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="{{url_for('static', 'styles.js')}}"></script>
+{% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-inverse">
+
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class= "col-md-3">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+
+				</button>
+				<a class="navbar-brand" href="#">
+
+					<a href="/">
+						<img src="{{ url_for('static', filename='index.png')}}" style="width: 250px;">
+						<div class="logo-text"> MIAZĂZI </div>
+					</a>
+
+				</a>
+
+			</div>
+
+		</div>
+		<div class="col-md-9">
+			<div class="col-md-12">
+				<div class="row" >
+					<ul class="nav navbar-nav navbar-right">
+						{% if current_user.is_authenticated() %}
+							<li><a href="/logout">Logout</a></li>
+						{% else %}
+							<li><a href="/login"> Log In</a></li>
+							<li><a href= "/signup"> Sign Up</a></li>
+						{% endif %}
+						<li><a href= '#'> Language</a></li>
+						<li> <a href= "#"> Despre noi</a></li>
+
+					</ul>
+				</div><!-- /.navbar-collapse -->
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="slogan_text">
+							<h1 class="navbar-text navbar" style="color:white" >Ieşi din casă!</h1>
+							<a  class="btn btn-warning pull-right"  href="/create_event"> Creeaza Eveniment</a>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<form class="form-horizontal" role="search">
+						<div class="form-group col-md-10">
+							<input type="text" class="form-control" placeholder="Caută eveniment">
+						</div>
+						<div class="col-md-2">
+							<button type="submit" class="btn btn-default">Submit</button>
+						</div>
+					</form>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+			</div>
+		</div>
+	</div><!-- /.container-fluid -->
+</nav>
+{% endblock %}
+{% block content %}
+
+<p>STEFAN VODA</p>
+
+
+
+{% endblock %}
+

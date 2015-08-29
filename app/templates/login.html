@@ -1,0 +1,25 @@
+{% extends "base.html" %}	
+
+{% block content %}
+
+<form class=" form-group" method="POST" accept-charset="utf-8" style="width:60%;margin:auto;">
+	{{ form.csrf_token }}
+	<center><h2 class="form-group center">Log In</h2></center>
+	<div class = "form-group ">
+		{{ form.email(placeholder=form.email.label.text, class="form-control") }}
+		<span class="info-block">
+			{{ form.email.errors|first }}
+		</span>
+	</div>
+	<div class="form-group ">
+		{{ form.password(placeholder=form.password.label.text, class="form-control") }}
+		<span class="info-block">
+			{{ form.password.errors|first }}
+		</span>
+	</div>
+
+	<div class="form-group" style="width:10%;margin:auto;">
+	{{ form.submit(class="btn btn-danger center") }}
+	</div>
+</form>
+{% endblock %}
